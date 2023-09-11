@@ -3,11 +3,13 @@ import {useState} from 'react';
 import './App.css';
 
 function App(e) {
-const [weight, SetWeight] = useState(0)
-const [bottles, SetBottles] = useState(0)
+const [weight, SetWeight] = useState(1)
+const [bottles, SetBottles] = useState(1)
 const [time, SetTime] = useState(0)
 const [gender, SetGender] = useState('male')
 const [result, SetResult] = useState(0)
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
 
 const calculate = () => {
   let alcohol = 0
@@ -38,11 +40,24 @@ return (
     </div>
     <div>
       <label>Bottles</label>
-      <input type="number" value={bottles} onChange={e => SetBottles(e.target.value)} />
+      <select value={bottles} onChange={e => SetBottles(e.target. value)}>
+        {
+          numbers.map(bottles =>(
+            <option>{bottles}</option>
+          ))
+        }
+      </select>
+      
       </div>
     <div>
-      <label>Time in Hour</label>
-      <input type="number" value ={time} onChange={e => SetTime(e.target.value)} />
+      <label>Hour</label>
+      <select value={time} onChange={e => SetTime(e.target.value)}>
+        {
+          numbers.map(time =>(
+            <option>{time}</option>
+          ))
+        }
+      </select>
       </div>
     
     <label>Gender</label>
